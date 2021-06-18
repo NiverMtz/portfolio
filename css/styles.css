@@ -11,6 +11,7 @@
 @import url(./form.css);
 @import url(./title.css);
 
+
 :root {
     --fontSecond: 'Oxygen', sans-serif;
     --comment: 34px/55px var(--fontSecond);
@@ -25,19 +26,28 @@
     --body2: 14px/22px var(--fontBase);
     --button: bold 14px/22px var(--fontBase);
     --caption: 12px/19px var(--fontBase);
-    --gradient: radial-gradient(41.48% 11.48% at 2.38% 8.52%, #747DE9 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(135deg, #72EDF2 0%, #5151E5 100%);
-    --gradient2:  linear-gradient(to right, #0f0c29, #302b63, #24243e);
-    --purple: #310A90;
-    --green: #42E2B8;
+    /* --gradient: radial-gradient(41.48% 11.48% at 2.38% 8.52%, #040d22bb 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(135deg, #020514 0%, #363846 100%); */
+    --gradient: linear-gradient(160deg, rgba(128, 1, 21, .25), rgba(0, 162, 175, .25)), var(--gris);
+    --salmon: #ff5151;
+    --amarillo: #ffe700;
+    --verde: #00c5ad;
+    --gris: rgba(236, 236, 236, 0.5);
+    --negro: #333;
     --white: white;
-    --azul: #155c82;
-    --naranja: #f95528;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: var(--gradient2);
+    background: var(--gris);
     min-block-size: 100vh;
     font: var(--body1);
-    color: var(--naranja);
+    color: var(--negro);
     margin: 0;
+}
+
+#tosend {
+    opacity: 0;
 }

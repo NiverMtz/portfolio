@@ -10,14 +10,15 @@
 
 .menu ul a {
     text-decoration: none;
-    color: var(--white);
+    color: var(--negro);
     font: var(--button);
     text-transform: uppercase;
 }
 
 .menu ul a.is-active {
-    color: var(--naranja);
+    color: var(--verde);
 }
+
 
 @media (min-width: 768px) {
     .menu {
