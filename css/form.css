@@ -1,4 +1,5 @@
 .form-content {
+    padding-block-start: 40px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -15,7 +16,7 @@
 }
 
 .form p {
-    color: var(--white);
+    color: var(--negro);
     margin: 0;
     text-align: center;
 }
@@ -24,6 +25,10 @@
     display: flex;
     flex-direction: column;
     font: var(--button);
+}
+
+.form-title span {
+    color: red;
 }
 
 .form input, .form textarea {

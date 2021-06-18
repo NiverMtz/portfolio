@@ -1,7 +1,7 @@
 .title {
-    background: var(--naranja);
+    background: var(--verde);
     align-self: flex-start;
-    color: var(--white);
+    color: var(--negro);
     font: var(--headline5);
     padding-block-start: 4px;
     padding-block-end: 4px;
@@ -9,5 +9,5 @@
     padding-inline-end: 8px;
     text-decoration: none;
     /* margin-inline-start: 4px; */
-    box-shadow: -4px 4px 0 var(--white);
+    box-shadow: -4px 4px 0 var(--negro);
 }

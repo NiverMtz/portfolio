@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nivdev</title>
+    <title>Niver Martínez - Portfolio</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/logo_shape.ico" type="image/icon type">
+    <link rel="icon" href="./images/logo-niver-mtz-salmon-ico.ico" type="image/icon type">
 </head>
 <body>
     <header class="header">
         <div class="wrapper">
             <div class="header-content">
-                <img src="./images/logo-niv.png" alt="logo bonito">
+                <img src="./images/logo-niver-mtz-salmon.png" height="80%" alt="logo bonito">
                 <nav class="menu">
                     <ul>
                         <li><a class="is-active" href="#main">Hola</a></li>
@@ -27,11 +27,11 @@
                 <button class="button"><a target="_blank" style="text-decoration: none; color: white;" href="https://nivermtz.github.io/cv/">curriculum</a></button>
             </div>
         </div>
-    </header>
+    </header>   
     <div class="wrapper">
         <section aria-label="main" class="hero" id="main">
             <div class="hero-image">
-                <img src="./images/foto_cv.jpeg" width="338" height="330" alt="">
+                <img src="./images/foto_cv-removebg.png" alt="">
             </div>
             <div class="hero-description">
                 <h1>
@@ -41,8 +41,8 @@
                 <p>
                     Estudio Ingeniería en Computación en la FI-UNAM. Estoy comenzando mi carrera en el mundo del Desarrollo Front End.
                 </p>
-                <div class="social">
-                    <a class="button-icon" target="_blank" href="email:nivermartinezmed@gmail.com"><img src="./images/icon-important_mail.svg" alt=""></a>
+                <div class="social is-hero">
+                    <a class="button-icon" href="#contact"><img src="./images/icon-important_mail.svg" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://github.com/NiverMtz"><img src="./images/icon-github.svg" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://www.linkedin.com/in/niver-mtz/"><img src="./images/linkedin-brands.svg" width="24px" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://twitter.com/NiverUNAM"><img src="./images/icon-twitter_squared.svg" alt=""></a>
@@ -59,49 +59,54 @@
         </div>
         <div class="project" id="project">
             <div class="project-image">
-                <img src="./images/project1.png" alt="">
+                <img src="./images/Browser and Phone.png" alt="">
             </div>
             <div class="project-description">
                 <a class="title" target="_blank" href="https://nivermtz.github.io/youtube-dev-es/">YouTube DEV</a>
                 <p>Top de canales de YouTube para desarrolladores en español.</p>
-                <a target="_blank" href="https://github.com/NiverMtz/youtube-dev-es" class="button is-secondary">Ver Código</a>
-                <a target="_blank" href="https://nivermtz.github.io/youtube-dev-es/" class="button">Ver Proyecto</a>
+                <div class="project-button">
+                    <a target="_blank" href="https://github.com/NiverMtz/youtube-dev-es" class="button is-secondary">Ver Código</a>
+                    <a target="_blank" href="https://nivermtz.github.io/youtube-dev-es/" class="button">Ver Proyecto</a>
+                </div>
             </div>
         </div>
         <div class="project">
             <div class="project-image">
-                <img src="./images/rsz_project0.png" alt="">
+                <img src="./images/iPad Portrait.png" alt="">
             </div>
             <div class="project-description">
                 <a class="title" target="_blank" href="https://coursecsshtml.glitch.me/">Dulces Dulces MX</a>
                 <p>Maqueta de un sito para venta de dulces.</p>
-                <a target="_blank" href="https://github.com/NiverMtz/tiendaDulces" class="button is-secondary">Ver Código</a>
-                <a target="_blank" href="https://coursecsshtml.glitch.me/" class="button">Ver Proyecto</a>
+                <div class="project-button">
+                    <a target="_blank" href="https://github.com/NiverMtz/tiendaDulces" class="button is-secondary">Ver Código</a>
+                    <a target="_blank" href="https://coursecsshtml.glitch.me/" class="button">Ver Proyecto</a>
+                </div>
             </div>
         </div>
-        <form action="" method="GET" class="form" id="contact">
+        <!-- <form action="" class="form" id="contact"> -->
+            <form id="contact" class="form" action="https://formspree.io/f/meqvkogj" method="POST">
             <div class="form-content">
                 <h2 class="title">Contáctame</h2>
                 <p>Si está interesado en trabajar conmigo en su próximo proyecto, no dude en ponerse en contacto conmigo.</p>
-                <label for="form-name">Nombre Completo
-                    <input required type="text" placeholder="juan" name="form-name" id="form-name">
+                <label for="form-name"><div class="form-title">Nombre Completo <span>*</span></div>
+                    <input required type="text" placeholder="Luke Skywalker" name="form-name" id="form-name">
                 </label>
-                <label for="form-email">Correo Electrónico
-                    <input required type="email" placeholder="juan@gmail.com" name="email" id="form-email">
+                <label for="form-email"><div class="form-title">Correo electrónico <span>*</span></div>
+                    <input required type="email" placeholder="luke_skywalker@que.la.fuerza.te.acompañe" name="email" id="form-email">
                 </label>
                 <label for="form-message">Mensaje
                     <textarea name="message" placeholder="Mensaje" id="form-message" cols="20" rows="7"></textarea>
                 </label>
                 <button class="button" type="submit">enviar mensaje</button>
             </div>
+            <!-- <a href="mailto:nivermartinezmed@gmail.com" id="tosend">mail</a> -->
         </form>
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./images/logo-niv.png" height="130" alt="logo bonito">
+                    <img src="./images/logo-niver-mtz-salmon.png" height="50px" alt="logo bonito">
                 </div>
                 <div class="social">
-                    <a class="button-icon" target="_blank" href="email:nivermartinezmed@gmail.com"><img src="./images/icon-important_mail.svg" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://github.com/NiverMtz"><img src="./images/icon-github.svg" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://www.linkedin.com/in/niver-mtz/"><img src="./images/linkedin-brands.svg" width="24px" alt=""></a>
                     <a class="button-icon" target="_blank" href="https://twitter.com/NiverUNAM"><img src="./images/icon-twitter_squared.svg" alt=""></a>
@@ -112,6 +117,6 @@
                 </div>
             </div>
         </footer>
-    </div>
+        <script src="./js/main.js"></script>
 </body>
 </html>
