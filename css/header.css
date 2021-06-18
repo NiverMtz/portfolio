@@ -1,7 +1,9 @@
 .header {
     position: sticky;
     top: 0px;
-    backdrop-filter: blur(10px);
+    background: var(--gris);
+    /* backdrop-filter: blur(10px); */
+
 }
 
 .header-content {
