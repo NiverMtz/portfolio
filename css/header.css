@@ -1,8 +1,8 @@
 .header {
     position: sticky;
     top: 0px;
-    background: var(--gris);
-    /* backdrop-filter: blur(10px); */
+    /* background: var(--gris); */
+    backdrop-filter: blur(10px);
 
 }
 
