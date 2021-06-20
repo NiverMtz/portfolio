@@ -1,4 +1,8 @@
-# 💎 Portafolio de Niver
+<p align="center">
+  <img src="images/logo-niver-mtz-salmon.png" width="200">
+</p>
+
+# Portafolio de Niver
 
 Puedes verlo aquí: https://nivermtz.github.io/portfolio/
 
