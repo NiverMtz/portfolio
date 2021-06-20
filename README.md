@@ -12,7 +12,11 @@ Puedes verlo aquí: https://nivermtz.github.io/portfolio/
 
 ### 📱 Mobile
 
-<img src="images/nivermtz.github.io_portfolio_(Galaxy Note II).png" height="300">
+<p align="center">
+  <img src="images/nivermtz.github.io_portfolio_(Galaxy Note II).png" height="300">
+  <img src="images/nivermtz.github.io_portfolio_(Galaxy Note II) (1).png" height="300">
+  <img src="images/nivermtz.github.io_portfolio_(Galaxy Note II) (2).png" height="300">
+</p>
 
 ## 📌 Stack
 
