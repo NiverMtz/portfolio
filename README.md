@@ -20,7 +20,10 @@ Puedes verlo aquí: https://nivermtz.github.io/portfolio/
 
 ## 📌 Stack
 
-Website for describe my projects as Developer.
+Proyecto creado con:
+* HTML 5
+* CSS 3
+* JS (ES8)
 
 ## 🌟 Autor
 
