@@ -6,11 +6,13 @@ Puedes verlo aquí: https://nivermtz.github.io/portfolio/
 
 ### 💻 Desktop
 
-<imagen aquí>
+<p align="center">
+  <img src="images/nivermtz.github.io_portfolio_desktop.png" height="300">
+</p>
 
 ### 📱 Mobile
 
-<imagen aquí>
+<img src="images/nivermtz.github.io_portfolio_(Galaxy Note II).png" height="300">
 
 ## 📌 Stack
 
