@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".src/images/logo-niver-mtz-salmon.png" width="200">
+  <img src="./src/images/logo-niver-mtz-salmon.png" width="200">
 </p>
 
 # Portafolio de Niver
@@ -18,8 +18,8 @@ Puedes verlo aquí: https://nivermtz.github.io/portfolio/
 
 <p align="center">
   <img src="./src/images/nivermtz.github.io_portfolio_(Galaxy Note II).png" height="300">
-  <img src=".src/images/nivermtz.github.io_portfolio_(Galaxy Note II) (1).png" height="300">
-  <img src=".src/images/nivermtz.github.io_portfolio_(Galaxy Note II) (2).png" height="300">
+  <img src="./src/images/nivermtz.github.io_portfolio_(Galaxy Note II) (1).png" height="300">
+  <img src="./src/images/nivermtz.github.io_portfolio_(Galaxy Note II) (2).png" height="300">
 </p>
 
 ## 📌 Stack
