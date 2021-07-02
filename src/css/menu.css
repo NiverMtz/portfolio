@@ -1,0 +1,27 @@
+.menu {
+    display: none;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: var(--negro);
+    font: var(--button);
+    text-transform: uppercase;
+}
+
+.menu ul a.is-active {
+    color: var(--verde);
+}
+
+
+@media (min-width: 768px) {
+    .menu {
+        display: block;
+    }
+}
