@@ -12,6 +12,7 @@ function App() {
       <Hero name="Niver"></Hero>
       <Comment></Comment>
       <Project></Project>
+      <Project></Project>
       </div>
     </React.Fragment>
   );
