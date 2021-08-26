@@ -6,7 +6,7 @@ import Project from "./components/Project";
 
 function App() {
   return (
-    <React.Fragment>
+    <React.Fragment>  
       <Header></Header>
       <div className="wrapper">
       <Hero name="Niver"></Hero>
