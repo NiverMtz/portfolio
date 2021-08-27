@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Comment from "./components/Comment";
 import Project from "./components/Project";
 import Testimony from "./components/Testimony";
+import Footer from "./components/Footer";
 
 // Project Images
 import projectSector from "./assets/img/sector.png";
@@ -61,6 +62,7 @@ function App() {
           testimonyText={testimonyTextMena}
           testimonyAutor={testimonyAutorMena}
         />
+      <Footer/>
       </div>
     </React.Fragment>
   );
