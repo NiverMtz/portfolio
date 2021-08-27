@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 // Project Images
 import projectSector from "./assets/img/sector.png";
 import projectWebFreelance from "./assets/img/website-freelance.png";
+import projectVacacionesCody from "./assets/img/vacaciones-cody.png";
 
 // Testimony Images
 import pathImageTestimonyMariana from "./assets/img/mariana.jpg";
@@ -22,6 +23,8 @@ var linkProjectSector = "https://nivermtz.github.io/sector/";
 var linkCodeSector = "https://github.com/NiverMtz/sector";
 var linkProjectWebFreelance = "https://nivermtz.github.io/freelancer-website/";
 var linkCodeWebFreelance = "https://github.com/NiverMtz/freelancer-website";
+var linkProjectVacacionesCody = "https://github.com/NiverMtz/vacaciones-cody";
+var linkCodeVacacionesCody = "https://nivermtz.github.io/vacaciones-cody/";
 
 // Testimonys
 var testimonyTextMariana = `"Niver Mtz es una persona con altos valores sociales, 
@@ -43,6 +46,16 @@ function App() {
       <div className="wrapper">
         <Hero name="Niver"></Hero>
         <Comment></Comment>
+        <Project
+          pathImage={projectVacacionesCody}
+          linkProject={linkProjectVacacionesCody}
+          linkCode={linkCodeVacacionesCody}
+        />
+        <Testimony
+          pathImage={pathImageTestimonyMena}
+          testimonyText={testimonyTextMena}
+          testimonyAutor={testimonyAutorMena}
+        />
         <Project
           pathImage={projectSector}
           linkProject={linkProjectSector}
