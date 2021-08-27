@@ -13,7 +13,8 @@ import Footer from "./components/Footer";
 import projectSector from "./assets/img/sector.png";
 import projectWebFreelance from "./assets/img/website-freelance.png";
 import projectVacacionesCody from "./assets/img/vacaciones-cody.png";
-import projectBlogMultiSkin from "./assets/img/blog-multi-skin.jpg"
+import projectBlogMultiSkin from "./assets/img/blog-multi-skin.jpg";
+import projectFrontEndStore from "./assets/img/frontend-store.png";
 
 // Testimony Images
 import pathImageTestimonyMariana from "./assets/img/mariana.jpg";
@@ -25,10 +26,12 @@ var descriptionVacaionesCody = `Sitio para el concurso de #VeranoFrontEnd por Co
 var titleSector = "Sector";
 var descriptionSector = `Sitio para una tienda online de produtos para skaters.`;
 var titleWebFreelance = "Sitio Web Frelance";
-var descriptionWebFreelance = `Sitio ficticio para ofrecer Servicios Freelance.`;
+var descriptionWebFreelance = `Landing Page para ofrecer Servicios Freelance.`;
 var titleBlogMultiSkin = "Blog Multi Skin";
-var descriptionBlogMultiSkin = `Sitio web tipo blog, con la especial función de elegir entre 
+var descriptionBlogMultiSkin = `Blog Web, con la especial función de elegir entre 
 cinco tipos diferentes de estilos (skin).`;
+var titleFrontendStore = "Front End Store";
+var descriptionFrontendStore = `Marketplace para la venta de productos Front End.`;
 
 // Projects Links
 var linkProjectSector = "https://nivermtz.github.io/sector/";
@@ -37,8 +40,11 @@ var linkProjectWebFreelance = "https://nivermtz.github.io/freelancer-website/";
 var linkCodeWebFreelance = "https://github.com/NiverMtz/freelancer-website";
 var linkProjectVacacionesCody = "https://github.com/NiverMtz/vacaciones-cody";
 var linkCodeVacacionesCody = "https://nivermtz.github.io/vacaciones-cody/";
-var linkProjectBlogMultiSkin = "https://nivermtz.github.io/html-css-essentials/";
-var linkCodeBlogMultiSkin= "https://github.com/NiverMtz/html-css-essentials";
+var linkProjectBlogMultiSkin =
+  "https://nivermtz.github.io/html-css-essentials/";
+var linkCodeBlogMultiSkin = "https://github.com/NiverMtz/html-css-essentials";
+var linkProjectFrontendStore = "https://nivermtz.github.io/frontend-store/";
+var linkCodeFrontendStore = "https://github.com/NiverMtz/frontend-store";
 
 // Testimonys
 var testimonyTextMariana = `"Niver Mtz es una persona con altos valores sociales, 
@@ -60,6 +66,18 @@ function App() {
       <div className="wrapper">
         <Hero name="Niver"></Hero>
         <Comment></Comment>
+        <Project
+          title={titleFrontendStore}
+          description={descriptionFrontendStore}
+          pathImage={projectFrontEndStore}
+          linkProject={linkProjectFrontendStore}
+          linkCode={linkCodeFrontendStore}
+        />
+        <Testimony
+          pathImage={pathImageTestimonyMena}
+          testimonyText={testimonyTextMena}
+          testimonyAutor={testimonyAutorMena}
+        />
         <Project
           title={titleBlogMultiSkin}
           description={descriptionBlogMultiSkin}
