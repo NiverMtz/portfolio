@@ -4,6 +4,11 @@ import Header from "./components/Header";
 import Comment from "./components/Comment";
 import Project from "./components/Project";
 
+// Project Props: Sector
+import projectSector from './assets/img/sector.png';
+var linkProjectSector = "https://nivermtz.github.io/sector/";
+var linkCodeSector = 'https://github.com/NiverMtz/sector';
+
 function App() {
   return (
     <React.Fragment>  
@@ -11,8 +16,11 @@ function App() {
       <div className="wrapper">
       <Hero name="Niver"></Hero>
       <Comment></Comment>
-      <Project></Project>
-      <Project></Project>
+      <Project
+        pathImage={projectSector}
+        linkProject={linkProjectSector}
+        linkCode={linkCodeSector}
+      />
       </div>
     </React.Fragment>
   );

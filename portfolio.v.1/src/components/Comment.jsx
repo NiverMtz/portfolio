@@ -7,9 +7,9 @@ const Comment = () => {
             <div class="comment">
             <span>El Desarrollo Web es muy divertido, creativo e interesante.</span>
             <span>Aquí hay algunos proyectos que he desarrollado.</span>
-            <span>
+            <a href="#project">
                 <img src={icon} width="80" height="80" alt=""/>
-            </span>
+            </a>
             </div>
         </React.Fragment>
     )
