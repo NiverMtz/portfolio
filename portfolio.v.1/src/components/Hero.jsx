@@ -57,7 +57,7 @@ const Hero = (props) => {
             </div>
           </div>
           <a
-            href="https://github.com/NiverMtz/cv/raw/main/CV%20Niver%20Mtz.pdf"
+            href="https://github.com/NiverMtz/cv/raw/main/CV-NiverMartinez-ES.pdf"
             className="button"
           >
             Descargar curriculum
