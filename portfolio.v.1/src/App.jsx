@@ -10,11 +10,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 // Project Images
-import projectSector from "./assets/img/sector.png";
-import projectWebFreelance from "./assets/img/website-freelance.png";
-import projectVacacionesCody from "./assets/img/vacaciones-cody.png";
-import projectBlogMultiSkin from "./assets/img/blog-multi-skin.jpg";
-import projectFrontEndStore from "./assets/img/frontend-store.png";
+import projectSector from "./assets/img/project-skatestore.png";
+import projectCandyStore from "./assets/img/project-candystore.png";
+import projectVacacionesCody from "./assets/img/project-vacacionescody.png";
+import projectBlogMultiSkin from "./assets/img/project-multiskin.png";
+import projectFrontEndStore from "./assets/img/project-frontendstore.png";
 
 // Testimony Images
 import pathImageTestimonyMariana from "./assets/img/mariana.jpg";
@@ -25,8 +25,8 @@ var titleVacacionesCody = "Vacaciones de Cody";
 var descriptionVacaionesCody = `Sitio para el concurso de #VeranoFrontEnd por Codigo Facilito.`;
 var titleSector = "Sector";
 var descriptionSector = `Sitio para una tienda online de produtos para skaters.`;
-var titleWebFreelance = "Sitio Web Frelance";
-var descriptionWebFreelance = `Landing Page para ofrecer Servicios Freelance.`;
+var titleCandyStore = "Dulces Dulces MX";
+var descriptionCandyStore = `Landing Page para ofrecer de una tienda de Dulces`;
 var titleBlogMultiSkin = "Blog Multi Skin";
 var descriptionBlogMultiSkin = `Blog Web, con la especial función de elegir entre 
 cinco tipos diferentes de estilos (skin).`;
@@ -36,12 +36,11 @@ var descriptionFrontendStore = `Marketplace para la venta de productos Front End
 // Projects Links
 var linkProjectSector = "https://nivermtz.github.io/sector/";
 var linkCodeSector = "https://github.com/NiverMtz/sector";
-var linkProjectWebFreelance = "https://nivermtz.github.io/freelancer-website/";
+var linkProjectCandyStore = "https://nivermtz.github.io/freelancer-website/";
 var linkCodeWebFreelance = "https://github.com/NiverMtz/freelancer-website";
 var linkProjectVacacionesCody = "https://github.com/NiverMtz/vacaciones-cody";
 var linkCodeVacacionesCody = "https://nivermtz.github.io/vacaciones-cody/";
-var linkProjectBlogMultiSkin =
-  "https://nivermtz.github.io/html-css-essentials/";
+var linkProjectBlogMultiSkin = "https://nivermtz.github.io/html-css-essentials/";
 var linkCodeBlogMultiSkin = "https://github.com/NiverMtz/html-css-essentials";
 var linkProjectFrontendStore = "https://nivermtz.github.io/frontend-store/";
 var linkCodeFrontendStore = "https://github.com/NiverMtz/frontend-store";
@@ -79,11 +78,11 @@ function App() {
           testimonyAutor={testimonyAutorMena}
         />
         <Project
-          title={titleBlogMultiSkin}
-          description={descriptionBlogMultiSkin}
-          pathImage={projectBlogMultiSkin}
-          linkProject={linkProjectBlogMultiSkin}
-          linkCode={linkCodeBlogMultiSkin}
+          title={titleSector}
+          description={descriptionSector}
+          pathImage={projectSector}
+          linkProject={linkProjectSector}
+          linkCode={linkCodeSector}
         />
         <Testimony
           pathImage={pathImageTestimonyMariana}
@@ -103,11 +102,11 @@ function App() {
           testimonyAutor={testimonyAutorMena}
         />
         <Project
-          title={titleSector}
-          description={descriptionSector}
-          pathImage={projectSector}
-          linkProject={linkProjectSector}
-          linkCode={linkCodeSector}
+          title={titleBlogMultiSkin}
+          description={descriptionBlogMultiSkin}
+          pathImage={projectBlogMultiSkin}
+          linkProject={linkProjectBlogMultiSkin}
+          linkCode={linkCodeBlogMultiSkin}
         />
         <Testimony
           pathImage={pathImageTestimonyMariana}
@@ -115,10 +114,10 @@ function App() {
           testimonyAutor={testimonyAutorMariana}
         />
         <Project
-          title={titleWebFreelance}
-          description={descriptionWebFreelance}
-          pathImage={projectWebFreelance}
-          linkProject={linkProjectWebFreelance}
+          title={titleCandyStore}
+          description={descriptionCandyStore}
+          pathImage={projectCandyStore}
+          linkProject={linkProjectCandyStore}
           linkCode={linkCodeWebFreelance}
         />
         <Testimony
