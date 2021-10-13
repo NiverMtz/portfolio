@@ -1,6 +1,6 @@
 .hero {
     padding-block-start: 16px;
-    background: var(--gradient);
+    /* background: var(--gradient); */
     padding: 30px;
     border-radius: 10px;
 }

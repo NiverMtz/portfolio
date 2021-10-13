@@ -32,7 +32,7 @@ const Footer = () => {
             class="button-icon"
             target="_blank"
             rel="noreferrer"
-            href="https://twitter.com/NiverUNAM"
+            href="https://twitter.com/nivermtz"
           >
             <img src={iconTwitter} alt="" />
           </a>
