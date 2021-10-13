@@ -70,7 +70,7 @@ function App() {
         <Hero name="Niver"></Hero>
         <Comment></Comment>
         <section className="projects">
-          <h2> 💻 Proyectos 📱 </h2>
+          {/* <h2> 💻 Proyectos 📱 </h2> */}
           <Project
             title={titleGalacticCode}
             description={descriptionGalacticCode}
@@ -108,7 +108,7 @@ function App() {
           />
         </section>
         <section className="comments">
-          <h2> 🧔 Comentarios 👩‍🦰 </h2>
+          {/* <h2> 🧔 Comentarios 👩‍🦰 </h2> */}
           <div className="galery">
             <div className="galery__item">
               <Testimony
