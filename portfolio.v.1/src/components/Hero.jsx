@@ -1,9 +1,9 @@
 import React from "react";
 import foto_hero from "../assets/img/foto_cv-removebg.png";
-import icon_1 from "../assets/img/icon-important_mail.svg";
 import icon_2 from "../assets/img/icon-github.svg";
-import icon_3 from "../assets/img/linkedin-brands.svg";
+import icon_1 from "../assets/img/icon-important_mail.svg";
 import icon_4 from "../assets/img/icon-twitter_squared.svg";
+import icon_3 from "../assets/img/linkedin-brands.svg";
 var link_mail = `<a href='#contact'><img src=${icon_1} alt="" /></a>`;
 var link_github = `<a href='https://www.linkedin.com/in/niver-mtz/'><img src=${icon_2} alt="" /></a>`;
 var link_linkedin = `<a href='https://www.linkedin.com/in/niver-mtz/'><img src=${icon_3} style="width:24px" alt="" /></a>`;
@@ -22,12 +22,10 @@ const Hero = (props) => {
             <span>Soy {props.name}</span>
           </h1>
           <p>
-            Estudio en la <strong>Facultad de Ingeniería de la UNAM</strong>, me gusta mucho 
-            aprender, participar en hackathones y proyectos interesantes.
-            <br />
-            <br />
-            Actualmente mi campo de desarrollo más extenso es <strong>Front End Web</strong>. Sin
-            embargo, me gustaría seguir aprendiendo otras cosas como <strong>Back End,
+            
+            <strong>Frontend Developer</strong> con más de 3 años de experiencia, particpando
+            en diferentes proyectos para empresas del sector privado y proyectos independientes.
+            También, sigo aprendiendo otras cosas como <strong>Back End,
             Aplicaciones Móviles y Ciencia de Datos.</strong>
           </p>
           <div className="social is-hero">
