@@ -4,9 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path docs --base-href /portfolio/",
+    "postbuild": "git branch -D gh-pages && git checkout -b gh-pages",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "pregithub": "ng build",
+    "github": "cp docs/index.html docs/404.html && git add . && git commit -m \"deploy\" && git push -f origin gh-pages",
+    "postgithub": "git checkout main"
   },
   "private": true,
   "dependencies": {
