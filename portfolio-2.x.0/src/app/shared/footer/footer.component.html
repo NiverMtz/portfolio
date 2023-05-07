@@ -1,0 +1,16 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../../../assets/img/logo-niver-mtz-lila.png" height="50px" alt="logo bonito">
+        </div>
+        <div class="social is-hero">
+            <a *ngFor="let link of links" [href]="link.href" target="_blank">
+                <p-button [icon]="link.icon" styleClass="p-button-rounded"></p-button>
+            </a>
+        </div>
+        <div class="footer-copyright text-white">
+            <p>Hecho con el 🤍 por Niver.</p>
+            <p>Copyright {{ today | date:'YYYY' }} - Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>

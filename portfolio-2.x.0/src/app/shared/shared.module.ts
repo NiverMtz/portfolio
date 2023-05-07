@@ -3,20 +3,26 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { ButtonModule } from 'primeng/button';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { RippleModule } from 'primeng/ripple';
+import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     TranslateModule,
-    ButtonModule
+    RouterModule,
+    ButtonModule,
+    RippleModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
