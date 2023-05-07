@@ -1,0 +1,10 @@
+{
+  "HERO": {
+    "title": "¡Bienvenid@!",
+    "subtitle": "Soy Niver Mtz",
+    "description-job": "Frontend Developer",
+    "description-else": "apasionado de las ciencias y las artes. Espero disfrutes este portafolio tanto como yo disfruté elaborarlo.",
+    "description-invite": "¡Sígueme!",
+    "button-label": "Descargar CV"
+  }
+}

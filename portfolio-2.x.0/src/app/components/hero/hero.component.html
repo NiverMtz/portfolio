@@ -1,0 +1,25 @@
+<section aria-label="main" class="hero" id="main">
+  <div class="hero-image">
+    <img src="https://shorturl.at/vCNV4" alt="" />
+  </div>
+  <div class="hero-description">
+    <h1>
+      <span>{{ 'HERO.title' | translate }}</span>
+      <span>{{ 'HERO.subtitle' | translate }}</span>
+    </h1>
+    <p>
+        <strong>{{ 'HERO.description-job' | translate }} </strong>
+        <span>{{ 'HERO.description-else' | translate }} </span>
+        <i>{{ 'HERO.description-invite' | translate }}</i>
+    </p>
+    <div class="social is-hero">
+      <a *ngFor="let link of links" [href]="link.href" target="_blank">
+        <p-button [icon]="link.icon" styleClass="p-button-rounded"></p-button>
+      </a>
+    </div>
+    <a href="../../../assets/NiverMartinez-Resume.pdf" target="_blank">
+      <p-button [label]="'HERO.button-label' | translate" styleClass="p-button-outlined">
+      </p-button>
+    </a>
+  </div>
+</section>
