@@ -1,0 +1,35 @@
+.header {
+  position: sticky;
+  top: 0px;
+  // background: var(--gris);
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    block-size: 80px;
+  }
+}
+
+.menu {
+  display: none;
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    a {
+      text-decoration: none;
+      color: var(--gris);
+      font: var(--button);
+      text-transform: uppercase;
+      &.is-active {
+        color: var(--white);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: block;
+  }
+}
