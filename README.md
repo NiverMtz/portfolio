@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="portfolio.v.0/images/logo-niver-mtz-salmon.png" width="200">
+  <img src="portfolio-2.x.0/src/assets/img/logo-niver-mtz-lila.png" width="200">
 </p>
 
 # Portafolio de Niver
