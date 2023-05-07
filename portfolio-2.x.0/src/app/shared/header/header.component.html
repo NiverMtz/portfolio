@@ -1,16 +1,16 @@
-<header class="header">
+<header class="sticky top-0 shadow-4">
     <div class="wrapper">
-        <div class="header-content">
-            <img src="../../../assets/img/logo-niver-mtz.png" height="80%" alt="logo bonito">
-            <nav class="menu">
-                <ul>
-                    <li><a class="is-active" href="#main">Hola</a></li>
-                    <li><a href="#project">Proyectos</a></li>
-                    <li><a href="#contact">Contactar</a></li>
+        <div class="flex justify-content-between align-items-center h-5rem">
+            <img [routerLink]="['/']" src="../../../assets/img/logo-niver-mtz-lila.png" height="80%" alt="logo bonito">
+            <nav class="hidden md:block ">
+                <ul class="flex gap-6">
+                    <li><a class="is-active" href="#main">{{ 'HEADER.hello' | translate }}</a></li>
+                    <li><a href="#project">{{ 'HEADER.projects' | translate }}</a></li>
+                    <li><a href="#contact">{{ 'HEADER.contact' | translate }}</a></li>
                 </ul>
             </nav>
-            <a class="card flex justify-content-center" href="https://nivermtz.github.io/cv/" target="_blank">
-                <p-button label="Curriculum" styleClass="p-button-outlined">
+            <a pRipple class="card flex justify-content-center" href="https://rb.gy/xnw3i" target="_blank">
+                <p-button [label]="'HEADER.button' | translate" styleClass="p-button-rounded">
                 </p-button>
             </a>
         </div>

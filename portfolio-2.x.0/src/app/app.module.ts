@@ -11,6 +11,11 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ButtonModule } from 'primeng/button';
 import { CustomHttpTranslateLoader } from './core/common/custom-http-translate-loader';
 import { environment } from 'src/environments/environment';
+import { CommentComponent } from './components/comment/comment.component';
+import { MyProjectComponent } from './components/my-project/my-project.component';
+import { RippleModule } from 'primeng/ripple';
+import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
+import { RouterModule } from '@angular/router';
 
 export function httpLoaderFactory(
   helper: HttpBackend
@@ -23,11 +28,12 @@ export function httpLoaderFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, HeroComponent],
+  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent, MyProjectComponent, MyProjectsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,6 +43,7 @@ export function httpLoaderFactory(
     }),
     SharedModule,
     ButtonModule,
+    RippleModule
   ],
   providers: [],
   bootstrap: [AppComponent],

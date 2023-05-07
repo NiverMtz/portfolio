@@ -1,17 +1,5 @@
-.header {
-  position: sticky;
-  top: 0px;
-  // background: var(--gris);
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    block-size: 80px;
-  }
-}
-
-.menu {
-  display: none;
+header {
+  background-color: #121212;
   ul {
     display: flex;
     list-style: none;
@@ -25,11 +13,5 @@
         color: var(--white);
       }
     }
-  }
-}
-
-@media (min-width: 768px) {
-  .menu {
-    display: block;
   }
 }

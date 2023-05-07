@@ -4,7 +4,7 @@
   --fontSecond: "Oxygen", sans-serif;
   --comment: 34px/55px var(--fontSecond);
   --description: bold 16px/26px var(--fontSecond);
-  --fontBase: "Poppins", sans-serif;
+  --fontBase: 'Poppins', sans-serif;
   --headline1: bold 95px/153.71px var(--fontBase);
   --headline2: bold 59px/95px var(--fontBase);
   --headline3: bold 48px/77px var(--fontBase);
@@ -28,6 +28,7 @@
   --negro: #333;
   --negro2: rgba(51, 51, 51, 0.2);
   --white: white;
+  --violet: #A28AF5;
 }
 
 html {
@@ -35,11 +36,10 @@ html {
 }
 
 body {
-  background: var(--negro);
   min-block-size: 100vh;
   font: var(--body1);
-  color: var(--white);
   margin: 0;
+  overflow: auto;
 }
 
 h1 {
@@ -61,22 +61,22 @@ app-header {
   margin: auto;
 }
 
-.button {
-  background: var(--gris);
-  color: var(--white);
-  font: var(--button);
-  padding-inline-start: 24px;
-  padding-inline-end: 24px;
-  padding-block-start: 13px;
-  padding-block-end: 13px;
-  border-radius: 30px;
-  text-transform: uppercase;
-  border: none;
-  text-decoration: none;
-  text-align: center;
-  &.is-secondary {
-    background: unset;
-    color: var(--gris);
-    border: 2px solid var(--gris);
-  }
+.social {
+    padding-block-end: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.social.is-hero {
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .social.is-hero {
+        justify-content: left;
+    }
+}
+
+.p-button {
+  position: unset !important;
 }
