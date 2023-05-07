@@ -1,4 +1,10 @@
 {
+  "HEADER": {
+    "hello":"Hola",
+    "projects":"Proyectos",
+    "contact":"Contactar",
+    "button":"Descargar CV"
+  },
   "HERO": {
     "title": "¡Bienvenid@!",
     "subtitle": "Soy Niver Mtz",

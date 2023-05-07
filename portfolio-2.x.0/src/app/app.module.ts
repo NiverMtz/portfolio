@@ -11,6 +11,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ButtonModule } from 'primeng/button';
 import { CustomHttpTranslateLoader } from './core/common/custom-http-translate-loader';
 import { environment } from 'src/environments/environment';
+import { CommentComponent } from './components/comment/comment.component';
 
 export function httpLoaderFactory(
   helper: HttpBackend
@@ -23,7 +24,7 @@ export function httpLoaderFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, HeroComponent],
+  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

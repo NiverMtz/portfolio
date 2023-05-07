@@ -1,6 +1,5 @@
 .hero {
     padding-block-start: 16px;
-    background: var(--gradient);
     padding: 30px;
     border-radius: 10px;
 }
@@ -94,17 +93,4 @@
     .social.is-hero {
         justify-content: left;
     }
-}
-
-.button-icon {
-    padding: 10px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid var(--white);
-    text-decoration: none;
-    display: inline-block;
-}
-
-.button-icon img {
-    vertical-align: middle;
 }

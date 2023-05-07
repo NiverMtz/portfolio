@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/primeng/resources/themes/soho-dark/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },
@@ -53,13 +54,7 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "projects/chubb-plus/src/environments/environment.development.ts",
-                  "with": "projects/chubb-plus/src/environments/environment.development.ts"
-                }
-              ]
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
