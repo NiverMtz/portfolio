@@ -9,16 +9,43 @@ import { ChatbotService, ChatMessage } from './chatbot.service';
 export class ChatbotComponent {
   @ViewChild('body') private bodyRef?: ElementRef<HTMLElement>;
 
+  private static readonly HINT_KEY = 'chatbot-hint-dismissed';
+
   open = false;
   loading = false;
   error = false;
   draft = '';
   messages: ChatMessage[] = [];
+  // Globo con la invitación: se muestra hasta que el visitante abre el chat.
+  hintDismissed = this.readHintDismissed();
 
   constructor(private chatbot: ChatbotService) {}
 
   toggle(): void {
     this.open = !this.open;
+    if (this.open) {
+      this.dismissHint();
+    }
+  }
+
+  private readHintDismissed(): boolean {
+    try {
+      return localStorage.getItem(ChatbotComponent.HINT_KEY) === '1';
+    } catch {
+      return false;
+    }
+  }
+
+  private dismissHint(): void {
+    if (this.hintDismissed) {
+      return;
+    }
+    this.hintDismissed = true;
+    try {
+      localStorage.setItem(ChatbotComponent.HINT_KEY, '1');
+    } catch {
+      /* almacenamiento no disponible: basta con ocultarlo en esta sesión */
+    }
   }
 
   send(): void {

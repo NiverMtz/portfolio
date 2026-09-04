@@ -28,6 +28,7 @@
   "CHATBOT": {
     "open": "Abrir el chat",
     "close": "Cerrar el chat",
+    "hint": "👋 Pregúntame sobre Niver",
     "title": "Pregúntame sobre Niver",
     "intro": "Hola 👋 Puedo contarte sobre la experiencia, el stack y los proyectos de Niver.",
     "placeholder": "Escribe tu pregunta...",

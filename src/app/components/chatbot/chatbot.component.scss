@@ -5,16 +5,56 @@
   z-index: 1000;
   inline-size: 56px;
   block-size: 56px;
-  border: none;
+  border: 2px solid var(--white);
   border-radius: 50%;
   cursor: pointer;
   background: var(--salmon);
   color: #fff;
-  font-size: 1.4rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  font-size: 1.6rem;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 
   &.is-open {
     background: var(--negro);
+  }
+}
+
+.chat-hint {
+  position: fixed;
+  right: 86px;
+  bottom: 30px;
+  z-index: 1000;
+  padding: 8px 12px;
+  border: 2px solid var(--salmon);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--negro);
+  font: var(--button);
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  animation: chat-hint-bob 1.6s ease-in-out infinite;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    margin-block-start: -7px;
+    border: 7px solid transparent;
+    border-inline-start-color: var(--white);
+  }
+}
+
+@keyframes chat-hint-bob {
+  50% {
+    transform: translateX(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-hint {
+    animation: none;
   }
 }
 

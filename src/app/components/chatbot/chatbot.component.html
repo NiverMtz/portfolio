@@ -1,4 +1,13 @@
 <button
+  *ngIf="!open && !hintDismissed"
+  type="button"
+  class="chat-hint"
+  (click)="toggle()"
+>
+  {{ 'CHATBOT.hint' | translate }}
+</button>
+
+<button
   type="button"
   class="chat-fab"
   [class.is-open]="open"
@@ -6,7 +15,8 @@
   [attr.aria-label]="(open ? 'CHATBOT.close' : 'CHATBOT.open') | translate"
   [attr.aria-expanded]="open"
 >
-  <i class="pi" [ngClass]="open ? 'pi-times' : 'pi-comments'"></i>
+  <i class="pi pi-times" *ngIf="open"></i>
+  <span *ngIf="!open" aria-hidden="true">🤖</span>
 </button>
 
 <section class="chat-panel" *ngIf="open">
