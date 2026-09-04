@@ -1,19 +1,27 @@
 {
   "routes": [
     {
-      "src": "/watch",
-      "dest": "/assets/cv.pdf"
+      "source": "/ver",
+      "destination": "/assets/resume_niver_martinez.pdf"
     },
     {
-      "src": "/download",
-      "dest": "/assets/resume_niver_martinez.pdf",
-      "headers": {
-        "Content-Disposition": "attachment; filename=\"resume_niver_martinez.pdf\""
-      }
+      "source": "/bajar",
+      "destination": "/assets/resume_niver_martinez.pdf"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!assets/|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/bajar",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"resume_niver_martinez.pdf\""
+        }
+      ]
     }
   ]
 }
