@@ -1,4 +1,19 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+// Vercel Serverless Function (runtime Node).
+// Sin dependencias externas: req/res se tipan de forma estructural para que
+// nada del tsconfig de Angular ni de @vercel/node pueda romper el bundle.
+
+interface Req {
+  method?: string;
+  headers: Record<string, string | string[] | undefined>;
+  body?: unknown;
+  socket?: { remoteAddress?: string };
+}
+
+interface Res {
+  status(code: number): Res;
+  json(body: unknown): void;
+  setHeader(name: string, value: string): void;
+}
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
@@ -19,63 +34,80 @@ function isEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function safeParse(raw: string): Record<string, unknown> {
-  try {
-    return JSON.parse(raw) as Record<string, unknown>;
-  } catch {
-    return {};
-  }
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object'
+    ? (value as Record<string, unknown>)
+    : {};
 }
 
-export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
-): Promise<VercelResponse> {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
-  }
-
-  const key = process.env['WEB3FORMS_KEY'];
-  if (!key) {
-    return res
-      .status(500)
-      .json({ success: false, message: 'Contact form not configured' });
-  }
-
-  const body =
-    typeof req.body === 'string' ? safeParse(req.body) : (req.body ?? {});
-  const name = String((body as Record<string, unknown>)['name'] ?? '').trim();
-  const email = String((body as Record<string, unknown>)['email'] ?? '').trim();
-  const message = String((body as Record<string, unknown>)['message'] ?? '').trim();
-  const botcheck = String((body as Record<string, unknown>)['botcheck'] ?? '').trim();
-
-  // Honeypot: un humano nunca llena este campo. Fingimos éxito y descartamos.
-  if (botcheck) {
-    return res.status(200).json({ success: true });
-  }
-
-  if (
-    name.length < 2 ||
-    name.length > 100 ||
-    !isEmail(email) ||
-    email.length > 150 ||
-    message.length < 10 ||
-    message.length > 5000
-  ) {
-    return res.status(422).json({ success: false, message: 'Invalid form data' });
-  }
-
-  const forwarded = req.headers['x-forwarded-for'];
-  const ip =
-    (Array.isArray(forwarded) ? forwarded[0] : forwarded)?.split(',')[0]?.trim() ||
-    req.socket?.remoteAddress ||
-    'unknown';
-  if (tooManyRequests(ip)) {
-    return res.status(429).json({ success: false, message: 'Too many requests' });
-  }
-
+export default async function handler(req: Req, res: Res): Promise<void> {
   try {
+    const hasKey = Boolean(process.env['WEB3FORMS_KEY']);
+
+    // Diagnóstico: abrir la URL en el navegador (GET) confirma que la función
+    // corre y si la variable de entorno llega. No expone la key.
+    if (req.method !== 'POST') {
+      res.setHeader('Allow', 'POST');
+      res
+        .status(req.method === 'GET' ? 200 : 405)
+        .json({ ok: true, method: req.method ?? 'UNKNOWN', hasKey });
+      return;
+    }
+
+    const key = process.env['WEB3FORMS_KEY'];
+    if (!key) {
+      console.error('[contact] WEB3FORMS_KEY no está configurada');
+      res
+        .status(500)
+        .json({ success: false, message: 'Contact form not configured' });
+      return;
+    }
+
+    let raw: unknown = req.body;
+    if (typeof raw === 'string') {
+      try {
+        raw = JSON.parse(raw);
+      } catch {
+        raw = {};
+      }
+    }
+
+    const body = asRecord(raw);
+    const name = String(body['name'] ?? '').trim();
+    const email = String(body['email'] ?? '').trim();
+    const message = String(body['message'] ?? '').trim();
+    const botcheck = String(body['botcheck'] ?? '').trim();
+
+    // Honeypot: un humano nunca llena este campo. Fingimos éxito y descartamos.
+    if (botcheck) {
+      res.status(200).json({ success: true });
+      return;
+    }
+
+    if (
+      name.length < 2 ||
+      name.length > 100 ||
+      !isEmail(email) ||
+      email.length > 150 ||
+      message.length < 10 ||
+      message.length > 5000
+    ) {
+      res.status(422).json({ success: false, message: 'Invalid form data' });
+      return;
+    }
+
+    const forwarded = req.headers['x-forwarded-for'];
+    const ip =
+      (Array.isArray(forwarded) ? forwarded[0] : forwarded)
+        ?.split(',')[0]
+        ?.trim() ||
+      req.socket?.remoteAddress ||
+      'unknown';
+    if (tooManyRequests(ip)) {
+      res.status(429).json({ success: false, message: 'Too many requests' });
+      return;
+    }
+
     const upstream = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -89,13 +121,20 @@ export default async function handler(
       }),
     });
 
-    const data = (await upstream.json().catch(() => ({}))) as { success?: boolean };
+    const data = (await upstream.json().catch(() => ({}))) as {
+      success?: boolean;
+      message?: string;
+    };
+
     if (!upstream.ok || !data.success) {
-      return res.status(502).json({ success: false, message: 'Upstream error' });
+      console.error('[contact] Web3Forms error', upstream.status, data);
+      res.status(502).json({ success: false, message: 'Upstream error' });
+      return;
     }
 
-    return res.status(200).json({ success: true });
-  } catch {
-    return res.status(502).json({ success: false, message: 'Upstream error' });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error('[contact] Fallo inesperado:', err);
+    res.status(500).json({ success: false, message: 'Internal error' });
   }
 }
