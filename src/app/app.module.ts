@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpBackend } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
@@ -19,6 +19,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { RouterModule } from '@angular/router';
 
 export function httpLoaderFactory(
@@ -32,10 +33,11 @@ export function httpLoaderFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent, MyProjectComponent, MyProjectsComponent, ContactComponent],
+  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent, MyProjectComponent, MyProjectsComponent, ContactComponent, ChatbotComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule,

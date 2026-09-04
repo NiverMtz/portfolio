@@ -1,0 +1,138 @@
+.chat-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  inline-size: 56px;
+  block-size: 56px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--salmon);
+  color: #fff;
+  font-size: 1.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+
+  &.is-open {
+    background: var(--negro);
+  }
+}
+
+.chat-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  z-index: 1000;
+  inline-size: min(360px, calc(100vw - 40px));
+  block-size: min(520px, calc(100vh - 130px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  font: var(--body2);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #121212;
+}
+
+.chat-title {
+  font: var(--button);
+  color: var(--white);
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-intro {
+  margin: 0;
+  color: var(--gris);
+  font: var(--caption);
+}
+
+.chat-msg {
+  max-inline-size: 85%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+
+  &.is-user {
+    align-self: flex-end;
+    background: var(--salmon);
+    color: #fff;
+  }
+  &.is-bot {
+    align-self: flex-start;
+    background: #2b2b2b;
+    color: var(--white);
+  }
+  &.is-typing {
+    color: var(--gris);
+    animation: chat-blink 1.2s infinite;
+  }
+}
+
+@keyframes chat-blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.chat-error {
+  margin: 0;
+  color: var(--salmon);
+  font: var(--caption);
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #121212;
+
+  textarea {
+    flex: 1;
+    resize: none;
+    max-block-size: 96px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #1e1e1e;
+    color: var(--white);
+    font: var(--body2);
+  }
+
+  button {
+    inline-size: 38px;
+    border: none;
+    border-radius: 8px;
+    background: var(--salmon);
+    color: #fff;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}

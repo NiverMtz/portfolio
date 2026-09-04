@@ -4,4 +4,7 @@ export const environment = {
   // El formulario de contacto llama a esta función serverless (Vercel), que
   // reenvía a Formspree usando FORMSPREE_ENDPOINT (variable de entorno del server).
   contactEndpoint: '/api/contact',
+  // El chatbot llama a esta función serverless (Vercel), que consulta la API de
+  // Claude usando ANTHROPIC_API_KEY (variable de entorno del server).
+  chatEndpoint: '/api/chat',
 };

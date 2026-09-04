@@ -25,6 +25,15 @@
     "success": "¡Gracias por escribir! Te responderé pronto.",
     "error": "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme por correo."
   },
+  "CHATBOT": {
+    "open": "Abrir el chat",
+    "close": "Cerrar el chat",
+    "title": "Pregúntame sobre Niver",
+    "intro": "Hola 👋 Puedo contarte sobre la experiencia, el stack y los proyectos de Niver.",
+    "placeholder": "Escribe tu pregunta...",
+    "send": "Enviar",
+    "error": "No pude responder ahora mismo. Inténtalo de nuevo o usa el formulario de contacto."
+  },
   "HERO": {
     "title": "¡Bienvenid@!",
     "subtitle": "Soy Niver Martínez",

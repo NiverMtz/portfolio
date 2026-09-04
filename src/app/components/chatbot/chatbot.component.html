@@ -1,0 +1,59 @@
+<button
+  type="button"
+  class="chat-fab"
+  [class.is-open]="open"
+  (click)="toggle()"
+  [attr.aria-label]="(open ? 'CHATBOT.close' : 'CHATBOT.open') | translate"
+  [attr.aria-expanded]="open"
+>
+  <i class="pi" [ngClass]="open ? 'pi-times' : 'pi-comments'"></i>
+</button>
+
+<section class="chat-panel" *ngIf="open">
+  <header class="chat-header">
+    <span class="chat-title">{{ 'CHATBOT.title' | translate }}</span>
+    <button
+      type="button"
+      class="chat-close"
+      (click)="toggle()"
+      [attr.aria-label]="'CHATBOT.close' | translate"
+    >
+      <i class="pi pi-times"></i>
+    </button>
+  </header>
+
+  <div class="chat-body" #body aria-live="polite">
+    <p class="chat-intro">{{ 'CHATBOT.intro' | translate }}</p>
+
+    <div
+      *ngFor="let m of messages"
+      class="chat-msg"
+      [class.is-user]="m.role === 'user'"
+      [class.is-bot]="m.role === 'assistant'"
+    >
+      {{ m.content }}
+    </div>
+
+    <div class="chat-msg is-bot is-typing" *ngIf="loading">•••</div>
+
+    <p class="chat-error" *ngIf="error">{{ 'CHATBOT.error' | translate }}</p>
+  </div>
+
+  <form class="chat-input" (ngSubmit)="send()">
+    <textarea
+      rows="1"
+      name="draft"
+      [(ngModel)]="draft"
+      [placeholder]="'CHATBOT.placeholder' | translate"
+      (keydown)="onKeydown($event)"
+      [disabled]="loading"
+    ></textarea>
+    <button
+      type="submit"
+      [disabled]="loading || !draft.trim()"
+      [attr.aria-label]="'CHATBOT.send' | translate"
+    >
+      <i class="pi pi-send"></i>
+    </button>
+  </form>
+</section>
