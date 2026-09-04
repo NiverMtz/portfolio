@@ -1,0 +1,95 @@
+<section class="contact" aria-label="contact">
+  <h2 class="contact-title">{{ 'CONTACT.title' | translate }}</h2>
+  <p class="contact-lead">{{ 'CONTACT.lead' | translate }}</p>
+
+  <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <input
+      class="hp-field"
+      type="text"
+      formControlName="botcheck"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+    />
+
+    <label class="field">
+      <span class="field-label">
+        {{ 'CONTACT.name' | translate }} <span class="req">*</span>
+      </span>
+      <input
+        type="text"
+        pInputText
+        formControlName="name"
+        autocomplete="name"
+        [class.p-invalid]="isInvalid('name')"
+        [attr.aria-invalid]="isInvalid('name')"
+        [placeholder]="'CONTACT.name-placeholder' | translate"
+      />
+      <small class="field-error" *ngIf="isInvalid('name')">
+        {{ 'CONTACT.name-error' | translate }}
+      </small>
+    </label>
+
+    <label class="field">
+      <span class="field-label">
+        {{ 'CONTACT.email' | translate }} <span class="req">*</span>
+      </span>
+      <input
+        type="email"
+        pInputText
+        formControlName="email"
+        autocomplete="email"
+        [class.p-invalid]="isInvalid('email')"
+        [attr.aria-invalid]="isInvalid('email')"
+        [placeholder]="'CONTACT.email-placeholder' | translate"
+      />
+      <small class="field-error" *ngIf="isInvalid('email')">
+        {{
+          (f['email'].errors?.['required']
+            ? 'CONTACT.email-error-required'
+            : 'CONTACT.email-error'
+          ) | translate
+        }}
+      </small>
+    </label>
+
+    <label class="field">
+      <span class="field-label">
+        {{ 'CONTACT.message' | translate }} <span class="req">*</span>
+      </span>
+      <textarea
+        pInputTextarea
+        rows="7"
+        formControlName="message"
+        [class.p-invalid]="isInvalid('message')"
+        [attr.aria-invalid]="isInvalid('message')"
+        [placeholder]="'CONTACT.message-placeholder' | translate"
+      ></textarea>
+      <small class="field-error" *ngIf="isInvalid('message')">
+        {{
+          (f['message'].errors?.['required']
+            ? 'CONTACT.message-error-required'
+            : 'CONTACT.message-error'
+          ) | translate
+        }}
+      </small>
+    </label>
+
+    <p-button
+      type="submit"
+      styleClass="p-button-rounded"
+      [label]="(status === 'sending' ? 'CONTACT.sending' : 'CONTACT.send') | translate"
+      [disabled]="status === 'sending'"
+    ></p-button>
+
+    <p class="contact-feedback is-error" *ngIf="status === 'invalid'">
+      {{ 'CONTACT.invalid' | translate }}
+    </p>
+    <p class="contact-feedback is-success" *ngIf="status === 'success'">
+      {{ 'CONTACT.success' | translate }}
+    </p>
+    <p class="contact-feedback is-error" *ngIf="status === 'error'">
+      {{ 'CONTACT.error' | translate }}
+    </p>
+  </form>
+</section>

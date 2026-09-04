@@ -1,0 +1,87 @@
+.contact {
+  padding-block: 80px;
+  max-inline-size: 540px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-title {
+  font: var(--headline4);
+  margin: 0;
+  text-align: center;
+}
+
+.contact-lead {
+  color: var(--white);
+  margin: 0;
+  text-align: center;
+}
+
+.contact-form {
+  margin-block-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// Honeypot: fuera de pantalla, sin foco ni lectura por AT.
+.hp-field {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font: var(--button);
+}
+
+.field-label .req {
+  color: var(--salmon);
+}
+
+.field input,
+.field textarea {
+  inline-size: 100%;
+  border-radius: 8px;
+  font: var(--body1);
+  resize: vertical;
+}
+
+// Respaldo por si el tema de PrimeNG no marcara el borde.
+.field input.p-invalid,
+.field textarea.p-invalid {
+  border-color: var(--salmon);
+}
+
+.field-error {
+  display: block;
+  color: var(--salmon);
+  font: var(--caption);
+}
+
+.contact-feedback {
+  margin: 0;
+  text-align: center;
+  font: var(--button);
+}
+
+.contact-feedback.is-success {
+  color: var(--verde);
+}
+
+.contact-feedback.is-error {
+  color: var(--salmon);
+}

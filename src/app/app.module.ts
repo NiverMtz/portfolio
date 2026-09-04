@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpBackend } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
@@ -14,7 +15,10 @@ import { environment } from 'src/environments/environment';
 import { CommentComponent } from './components/comment/comment.component';
 import { MyProjectComponent } from './components/my-project/my-project.component';
 import { RippleModule } from 'primeng/ripple';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { RouterModule } from '@angular/router';
 
 export function httpLoaderFactory(
@@ -28,9 +32,10 @@ export function httpLoaderFactory(
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent, MyProjectComponent, MyProjectsComponent],
+  declarations: [AppComponent, LandingComponent, HeroComponent, CommentComponent, MyProjectComponent, MyProjectsComponent, ContactComponent],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
@@ -43,7 +48,9 @@ export function httpLoaderFactory(
     }),
     SharedModule,
     ButtonModule,
-    RippleModule
+    RippleModule,
+    InputTextModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent],

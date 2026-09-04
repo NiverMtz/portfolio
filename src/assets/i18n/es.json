@@ -5,6 +5,26 @@
     "contact": "Contactar",
     "button": "Ver CV"
   },
+  "CONTACT": {
+    "title": "Contáctame",
+    "lead": "¿Tienes un proyecto en mente o quieres trabajar juntos? Escríbeme y te responderé pronto.",
+    "name": "Nombre completo",
+    "name-placeholder": "Luke Skywalker",
+    "name-error": "Escribe tu nombre (mínimo 2 caracteres).",
+    "email": "Correo electrónico",
+    "email-placeholder": "tu@correo.com",
+    "email-error-required": "Escribe tu correo electrónico.",
+    "email-error": "El formato del correo no es válido.",
+    "message": "Mensaje",
+    "message-placeholder": "Cuéntame en qué puedo ayudarte...",
+    "message-error-required": "Escribe un mensaje.",
+    "message-error": "El mensaje debe tener al menos 10 caracteres.",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "invalid": "Revisa los campos marcados antes de enviar.",
+    "success": "¡Gracias por escribir! Te responderé pronto.",
+    "error": "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme por correo."
+  },
   "HERO": {
     "title": "¡Bienvenid@!",
     "subtitle": "Soy Niver Martínez",
