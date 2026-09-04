@@ -43,38 +43,13 @@ function asRecord(value: unknown): Record<string, unknown> {
 
 export default async function handler(req: Req, res: Res): Promise<void> {
   try {
-    const endpoint = process.env['FORMSPREE_ENDPOINT'];
-
-    // Diagnóstico: abrir la URL en el navegador (GET) confirma que la función
-    // corre y qué variables de entorno ve. Solo devuelve NOMBRES, no valores.
     if (req.method !== 'POST') {
-      const systemPrefixes = [
-        'VERCEL',
-        'AWS',
-        'LAMBDA',
-        'NODE',
-        'PATH',
-        'LANG',
-        'LD_',
-        'TZ',
-        '_',
-      ];
-      const customEnvNames = Object.keys(process.env)
-        .filter((k) => !systemPrefixes.some((p) => k === p || k.startsWith(p)))
-        .sort();
-
       res.setHeader('Allow', 'POST');
-      res.status(req.method === 'GET' ? 200 : 405).json({
-        ok: true,
-        method: req.method ?? 'UNKNOWN',
-        configured: Boolean(endpoint),
-        endpointLength: endpoint ? endpoint.length : 0,
-        vercelEnv: process.env['VERCEL_ENV'] ?? null,
-        customEnvNames,
-      });
+      res.status(405).json({ success: false, message: 'Method not allowed' });
       return;
     }
 
+    const endpoint = process.env['FORMSPREE_ENDPOINT'];
     if (!endpoint) {
       console.error('[contact] FORMSPREE_ENDPOINT no está configurado');
       res
@@ -152,14 +127,8 @@ export default async function handler(req: Req, res: Res): Promise<void> {
     if (!upstream.ok || data.ok === false) {
       const detail =
         data.error ?? data.errors?.map((e) => e.message).join('; ') ?? null;
-      console.error('[contact] Formspree error', upstream.status, data);
-      res.status(502).json({
-        success: false,
-        message: 'Upstream error',
-        // Diagnóstico temporal: qué respondió Formspree. Quitar cuando funcione.
-        upstreamStatus: upstream.status,
-        upstreamMessage: detail,
-      });
+      console.error('[contact] Formspree error', upstream.status, detail, data);
+      res.status(502).json({ success: false, message: 'Upstream error' });
       return;
     }
 
