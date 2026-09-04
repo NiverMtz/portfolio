@@ -29,8 +29,8 @@ Proyecto creado con:
 * PRIMENG
 
 Desplegado en **Vercel**. El formulario de contacto usa una función serverless
-(`api/contact.ts`) que reenvía a [Web3Forms](https://web3forms.com); la
-`WEB3FORMS_KEY` se configura como *Environment Variable* en Vercel.
+(`api/contact.ts`) que reenvía a [Formspree](https://formspree.io); el endpoint
+`FORMSPREE_ENDPOINT` se configura como *Environment Variable* en Vercel.
 
 ## 🌟 Autor
 

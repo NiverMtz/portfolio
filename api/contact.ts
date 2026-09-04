@@ -1,6 +1,9 @@
 // Vercel Serverless Function (runtime Node).
 // Sin dependencias externas: req/res se tipan de forma estructural para que
 // nada del tsconfig de Angular ni de @vercel/node pueda romper el bundle.
+//
+// Reenvía a Formspree. El endpoint (https://formspree.io/f/XXXXXXXX) se guarda
+// como variable de entorno FORMSPREE_ENDPOINT en Vercel, no en el repo.
 
 interface Req {
   method?: string;
@@ -14,8 +17,6 @@ interface Res {
   json(body: unknown): void;
   setHeader(name: string, value: string): void;
 }
-
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 // Límite best-effort por instancia caliente: 5 envíos / 10 min por IP.
 const RATE_LIMIT = 5;
@@ -42,21 +43,22 @@ function asRecord(value: unknown): Record<string, unknown> {
 
 export default async function handler(req: Req, res: Res): Promise<void> {
   try {
-    const hasKey = Boolean(process.env['WEB3FORMS_KEY']);
+    const endpoint = process.env['FORMSPREE_ENDPOINT'];
 
     // Diagnóstico: abrir la URL en el navegador (GET) confirma que la función
-    // corre y si la variable de entorno llega. No expone la key.
+    // corre y si la variable de entorno llega. No expone el endpoint.
     if (req.method !== 'POST') {
       res.setHeader('Allow', 'POST');
-      res
-        .status(req.method === 'GET' ? 200 : 405)
-        .json({ ok: true, method: req.method ?? 'UNKNOWN', hasKey });
+      res.status(req.method === 'GET' ? 200 : 405).json({
+        ok: true,
+        method: req.method ?? 'UNKNOWN',
+        configured: Boolean(endpoint),
+      });
       return;
     }
 
-    const key = process.env['WEB3FORMS_KEY'];
-    if (!key) {
-      console.error('[contact] WEB3FORMS_KEY no está configurada');
+    if (!endpoint) {
+      console.error('[contact] FORMSPREE_ENDPOINT no está configurado');
       res
         .status(500)
         .json({ success: false, message: 'Contact form not configured' });
@@ -108,48 +110,37 @@ export default async function handler(req: Req, res: Res): Promise<void> {
       return;
     }
 
-    // api.web3forms.com está detrás de Cloudflare Bot Management: rechaza (403)
-    // las peticiones servidor-a-servidor que no parecen un navegador real.
-    // Este set de headers hace que el challenge de Cloudflare deje pasar.
-    const upstream = await fetch(WEB3FORMS_ENDPOINT, {
+    const upstream = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json, text/plain, */*',
-        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
-        Origin: 'https://nivermtz.dev',
-        Referer: 'https://nivermtz.dev/',
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
-          '(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        'sec-ch-ua':
-          '"Chromium";v="131", "Not_A Brand";v="24", "Google Chrome";v="131"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"',
+        Accept: 'application/json',
       },
       body: JSON.stringify({
-        access_key: key,
-        subject: 'Nuevo mensaje desde nivermtz.dev',
-        from_name: 'Portafolio Niver Mtz',
         name,
         email,
         message,
+        _subject: `Nuevo mensaje desde nivermtz.dev — ${name}`,
+        _replyto: email,
       }),
     });
 
     const data = (await upstream.json().catch(() => ({}))) as {
-      success?: boolean;
-      message?: string;
+      ok?: boolean;
+      error?: string;
+      errors?: Array<{ message?: string }>;
     };
 
-    if (!upstream.ok || !data.success) {
-      console.error('[contact] Web3Forms error', upstream.status, data);
+    if (!upstream.ok || data.ok === false) {
+      const detail =
+        data.error ?? data.errors?.map((e) => e.message).join('; ') ?? null;
+      console.error('[contact] Formspree error', upstream.status, data);
       res.status(502).json({
         success: false,
         message: 'Upstream error',
-        // Diagnóstico temporal: qué respondió Web3Forms. Quitar cuando funcione.
+        // Diagnóstico temporal: qué respondió Formspree. Quitar cuando funcione.
         upstreamStatus: upstream.status,
-        upstreamMessage: data.message ?? null,
+        upstreamMessage: detail,
       });
       return;
     }
