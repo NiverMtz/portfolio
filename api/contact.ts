@@ -46,13 +46,31 @@ export default async function handler(req: Req, res: Res): Promise<void> {
     const endpoint = process.env['FORMSPREE_ENDPOINT'];
 
     // Diagnóstico: abrir la URL en el navegador (GET) confirma que la función
-    // corre y si la variable de entorno llega. No expone el endpoint.
+    // corre y qué variables de entorno ve. Solo devuelve NOMBRES, no valores.
     if (req.method !== 'POST') {
+      const systemPrefixes = [
+        'VERCEL',
+        'AWS',
+        'LAMBDA',
+        'NODE',
+        'PATH',
+        'LANG',
+        'LD_',
+        'TZ',
+        '_',
+      ];
+      const customEnvNames = Object.keys(process.env)
+        .filter((k) => !systemPrefixes.some((p) => k === p || k.startsWith(p)))
+        .sort();
+
       res.setHeader('Allow', 'POST');
       res.status(req.method === 'GET' ? 200 : 405).json({
         ok: true,
         method: req.method ?? 'UNKNOWN',
         configured: Boolean(endpoint),
+        endpointLength: endpoint ? endpoint.length : 0,
+        vercelEnv: process.env['VERCEL_ENV'] ?? null,
+        customEnvNames,
       });
       return;
     }
