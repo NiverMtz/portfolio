@@ -55,8 +55,23 @@
     
 }
 
+.subtitle {
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.note {
+    align-self: flex-start;
+    border: 1px dashed var(--negro);
+    padding-block: 4px;
+    padding-inline: 8px;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
 .title {
     background: var(--violet);
+    display: inline-block;
     align-self: flex-start;
     color: var(--negro);
     font: var(--headline5);

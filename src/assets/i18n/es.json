@@ -16,38 +16,78 @@
   "MYPROJECT": {
     "view-code": "Ver Código",
     "view-project": "Ver Proyecto",
+    "challenge": "Reto",
+    "solution": "Solución",
+    "impact": "Impacto",
+    "stack": "Stack",
     "items": [
       {
+        "title": "UTEL Gaming Portal - 2025",
+        "subtitle": "Plataforma de cultura gaming y generador inteligente de GDDs (Game Design Documents), desarrollada durante el servicio social universitario.",
+        "challenge": "Integrar un backend con API REST para abastecer dinámicamente las secciones de noticias y perfiles del equipo, e implementar una solución de IA capaz de automatizar la creación de GDDs como valor diferencial del portal.",
+        "solution": "Interfaz responsiva con Vue.js y PrimeVue conectada a un backend en Node.js, integrando la API de OpenAI para procesar prompts y estructurar documentos de diseño de videojuegos en tiempo real, junto con la gestión operativa mediante herramientas de Google.",
+        "impact": "Despliegue exitoso de la Prueba de Concepto (POC) presentada ante la comunidad académica en las conferencias de fin de ciclo, validando el proyecto como propuesta oficial de servicio social técnico.",
+        "stack": "Vue.js, PrimeVue, Node.js, OpenAI API, Google Services, Axios.",
+        "note": "Proyecto académico / institucional — UTEL.",
+        "imgLink": "assets/img/project-utel-gaming-portal.png",
+        "codeLink": "https://github.com/NiverMtz/utel-gamming-portal",
+        "projectLink": "https://utel-gamming-portal.vercel.app"
+      },
+      {
+        "title": "Enterprise Dashboard & Onboarding Portal - 2024",
+        "subtitle": "Plataforma interna de alta concurrencia para apertura de cuentas y operaciones empresariales.",
+        "challenge": "Desacoplar módulos complejos de nóminas y transacciones que sufrían de alta dependencia en los despliegues.",
+        "solution": "Migración a una arquitectura con Angular Standalone Components, optimización de flujos de estado con RxJS y estandarización visual con PrimeNG / PrimeFlex.",
+        "impact": "Despliegues modulares independientes, mayor escalabilidad y una experiencia de usuario mucho más fluida.",
+        "stack": "Angular, TypeScript, RxJS, PrimeNG, PrimeFlex.",
+        "note": "Proyecto desarrollado bajo NDA — Código privado."
+      },
+      {
         "title": "PAISES APP - 2023",
-        "description": "Ejercicio del curso de angular en Udemy para hacer una aplicación con manejo de routing y consultas a una API de paises.",
+        "subtitle": "Aplicación de una sola página para explorar países y sus datos desde una API pública.",
+        "challenge": "Practicar el enrutamiento de Angular y el consumo de una API REST gestionando búsquedas, estados de carga y errores.",
+        "solution": "Rutas con parámetros y navegación entre vistas, un servicio central para las peticiones HTTP y búsquedas reactivas con RxJS sobre componentes reutilizables.",
+        "stack": "Angular, TypeScript, RxJS, REST API.",
         "imgLink": "https://github.com/NiverMtz/portfolio/blob/angular-version/portfolio-2.x.0/src/assets/img/project-paises.png?raw=true",
         "codeLink": "https://github.com/NiverMtz/paisesApp",
         "projectLink": "https://64300cd4555ddd3c7ad073f8--incandescent-quokka-11660e.netlify.app/"
       },
       {
         "title": "PAAX - 2021",
-        "description": "Es una plataforma musical enfocada a reseñar temas, recomendar tus tracks favoritos y crear un punto de encuentro para los amantes de la música.",
+        "subtitle": "Plataforma web de comunidad musical para reseñar temas y recomendar tracks favoritos.",
+        "challenge": "Desarrollar en equipo, como proyecto integrador de bootcamp y con un plazo acotado, la interfaz completa de una comunidad de música.",
+        "solution": "Maquetación responsiva con HTML y CSS, interacciones con JavaScript y trabajo colaborativo con control de versiones en Git.",
+        "stack": "HTML, CSS, JavaScript, Git.",
         "imgLink": "https://github.com/NiverMtz/portfolio/blob/angular-version/portfolio-2.x.0/src/assets/img/project-paax.png?raw=true",
         "codeLink": "https://github.com/NiverMtz/projecto-integrador-generation",
         "projectLink": "https://nivermtz.github.io/projecto-integrador-generation/"
       },
       {
         "title": "Galactic Code - 2021",
-        "description": "Landing Page construída sobre la ficción de Servicios de Desarrollo Web Integaláctico.",
+        "subtitle": "Landing page de una agencia ficticia de «Servicios de Desarrollo Web Intergaláctico».",
+        "challenge": "Llevar un concepto creativo a una landing page con identidad visual propia y diseño responsivo.",
+        "solution": "Maquetación semántica con HTML, estilos y layout responsivo con CSS e interacciones ligeras con JavaScript.",
+        "stack": "HTML, CSS, JavaScript.",
         "imgLink": "https://github.com/NiverMtz/portfolio/blob/angular-version/portfolio-2.x.0/src/assets/img/project-galactic-code.png?raw=true",
-        "codeLink": "https://github.com/NiverMtz/sector",
+        "codeLink": "https://github.com/NiverMtz/projecto-inicial-generation",
         "projectLink": "https://nivermtz.github.io/projecto-inicial-generation/"
       },
       {
         "title": "Sector - 2020",
-        "description": "Sitio para una tienda online de produtos para skaters.",
+        "subtitle": "Sitio de tienda online de productos para skaters.",
+        "challenge": "Diseñar y maquetar desde cero el catálogo y las vistas principales de una tienda.",
+        "solution": "Estructura semántica en HTML y maquetación responsiva con CSS para las páginas de catálogo, producto y tienda.",
+        "stack": "HTML, CSS.",
         "imgLink": "https://github.com/NiverMtz/portfolio/blob/angular-version/portfolio-2.x.0/src/assets/img/project-skatestore.png?raw=true",
-        "codeLink": "https://github.com/NiverMtz/projecto-inicial-generation",
+        "codeLink": "https://github.com/NiverMtz/sector",
         "projectLink": "https://nivermtz.github.io/sector/"
       },
       {
         "title": "Blog Multi Skin - 2020",
-        "description": "Blog Web, con la especial función de elegir entre cinco tipos diferentes de estilos.",
+        "subtitle": "Blog web que permite alternar entre cinco temas visuales distintos.",
+        "challenge": "Cambiar por completo la apariencia del sitio sin duplicar el contenido.",
+        "solution": "Un mismo HTML enlazado a cinco hojas de estilo intercambiables, con un script para conmutar el skin activo.",
+        "stack": "HTML, CSS, JavaScript.",
         "imgLink": "https://github.com/NiverMtz/portfolio/blob/angular-version/portfolio-2.x.0/src/assets/img/project-multiskin.png?raw=true",
         "codeLink": "https://github.com/NiverMtz/html-css-essentials",
         "projectLink": "https://nivermtz.github.io/html-css-essentials/"

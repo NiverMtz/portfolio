@@ -1,15 +1,28 @@
 <div *ngFor="let item of ('MYPROJECT.items' | translate)" class="project">
-    <div class="project-image">
+    <div class="project-image" *ngIf="item.imgLink">
         <img [src]="item.imgLink">
     </div>
     <div class="project-description">
-        <a class="title" target="_blank" [href]="item.projectLink">{{ item.title }}</a>
-        <p>{{ item.description }}</p>
-        <div class="project-button">
-            <a target="_blank" [href]="item.codeLink">
+        <a *ngIf="item.projectLink; else plainTitle" class="title" target="_blank" [href]="item.projectLink">{{ item.title }}</a>
+        <ng-template #plainTitle>
+            <span class="title">{{ item.title }}</span>
+        </ng-template>
+
+        <p *ngIf="item.subtitle" class="subtitle">{{ item.subtitle }}</p>
+        <p *ngIf="item.description">{{ item.description }}</p>
+
+        <p *ngIf="item.challenge"><strong>{{ 'MYPROJECT.challenge' | translate }}:</strong> {{ item.challenge }}</p>
+        <p *ngIf="item.solution"><strong>{{ 'MYPROJECT.solution' | translate }}:</strong> {{ item.solution }}</p>
+        <p *ngIf="item.impact"><strong>{{ 'MYPROJECT.impact' | translate }}:</strong> {{ item.impact }}</p>
+        <p *ngIf="item.stack"><strong>{{ 'MYPROJECT.stack' | translate }}:</strong> {{ item.stack }}</p>
+
+        <p *ngIf="item.note" class="note">{{ item.note }}</p>
+
+        <div class="project-button" *ngIf="item.codeLink || item.projectLink">
+            <a *ngIf="item.codeLink" target="_blank" [href]="item.codeLink">
                 <p-button [label]="'MYPROJECT.view-code' | translate " styleClass="p-button-rounded"></p-button>
             </a>
-            <a target="_blank" [href]="item.projectLink">
+            <a *ngIf="item.projectLink" target="_blank" [href]="item.projectLink">
                 <p-button [label]="'MYPROJECT.view-project' | translate "
                     styleClass="p-button-rounded p-button-outlined"></p-button>
             </a>
