@@ -1,11 +1,11 @@
 {
   "routes": [
     {
-      "source": "/ver",
+      "source": "/",
       "destination": "/assets/resume_niver_martinez.pdf"
     },
     {
-      "source": "/bajar",
+      "source": "/download",
       "destination": "/assets/resume_niver_martinez.pdf"
     },
     {
@@ -15,7 +15,7 @@
   ],
   "headers": [
     {
-      "source": "/bajar",
+      "source": "/download",
       "headers": [
         {
           "key": "Content-Disposition",
