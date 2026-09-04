@@ -128,7 +128,13 @@ export default async function handler(req: Req, res: Res): Promise<void> {
 
     if (!upstream.ok || !data.success) {
       console.error('[contact] Web3Forms error', upstream.status, data);
-      res.status(502).json({ success: false, message: 'Upstream error' });
+      res.status(502).json({
+        success: false,
+        message: 'Upstream error',
+        // Diagnóstico temporal: qué respondió Web3Forms. Quitar cuando funcione.
+        upstreamStatus: upstream.status,
+        upstreamMessage: data.message ?? null,
+      });
       return;
     }
 
